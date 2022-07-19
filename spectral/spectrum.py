@@ -12,5 +12,5 @@ as7262.set_measurement_mode(3)
 
 values = as7262.get_calibrated_values()
 
-with open('/home/pi/spectra3.txt', 'a') as myfile:
+with open('/home/theisen/spectra3.txt', 'a') as myfile:
     myfile.write(','.join([str(dt.datetime.now()),str(values.red), str(values.orange), str(values.yellow), str(values.green), str(values.blue), str(values.violet), '\n']))
