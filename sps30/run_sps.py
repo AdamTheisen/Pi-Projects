@@ -14,11 +14,13 @@ if __name__ == "__main__":
     clean_interval = pm_sensor.read_auto_cleaning_interval()
     pm_sensor.start_measurement()
 
-    f = open('/home/theisen/data/sps30/test.txt', 'a')
+    today = dt.date.today().strftime('%Y%m%d')
+    f = open('/home/theisen/Code/Pi-Projects/data/sps30/' + today + '.txt', 'a')
+    print('Opening file')
     ct = 0
     time = dt.datetime.now()
     while ct < 5:
-        try:
+        #try:
             data = pm_sensor.get_measurement()
             sleep(2)
             if len(data) > 0:
@@ -34,9 +36,10 @@ if __name__ == "__main__":
                 f.write(','.join([str(time)] + wdata)+'\n')
 
                 ct = 5
-        except:
-            pass
-        ct += 1
+        #except:
+        #    print('error')
+        #    pass
+            ct += 1
     f.close()
 
     pm_sensor.stop_measurement()
