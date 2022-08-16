@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-file = '/home/theisen/data/sps30/road_construction.txt'
+file = '/home/theisen/Code/Pi-Projects/data/sps30/20220815.txt'
 
 names = ['time', 'pc_0_5', 'pc_1_0', 'pc_2_5', 'pc_4_0', 'pc_10_0',
          'mc_1_0', 'mc_2_5', 'mc_4_0', 'mc_10_0','particle_size',
