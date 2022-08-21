@@ -13,7 +13,7 @@ names = ['time', 'pc_0_5', 'pc_1_0', 'pc_2_5', 'pc_4_0', 'pc_10_0',
 
 #df = pd.read_csv(files[0], index_col=0, names=names, parse_dates=True)
 #obj = df.to_xarray()
-obj = act.io.csvfiles.read_csv(files, column_names=names, parse_dates=True, index_col=0)
+obj = act.io.csvfiles.read_csv(files, column_names=names, parse_dates=True, index_col=0, ignore_index=False)
 da = obj['mc_2_5'].rolling(time=10).mean()
 
 obj['mc_2_5'] = da
