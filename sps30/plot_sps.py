@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 myFmt = mdates.DateFormatter('%m/%d-%H')
 
-file = '/home/theisen/Code/Pi-Projects/data/sps30/20220827.txt'
+file = '/home/theisen/Code/Pi-Projects/data/sps30/20220830.txt'
 
 names = ['time', 'pc_0_5', 'pc_1_0', 'pc_2_5', 'pc_4_0', 'pc_10_0',
          'mc_1_0', 'mc_2_5', 'mc_4_0', 'mc_10_0','particle_size',
