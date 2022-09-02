@@ -18,7 +18,7 @@ if __name__ == "__main__":
     f = open('/home/theisen/Code/Pi-Projects/data/sps30/' + today + '.txt', 'a')
     print('Opening file')
     ct = 0
-    time = dt.datetime.now()
+    time = dt.datetime.utcnow()
     while ct < 5:
         #try:
             data = pm_sensor.get_measurement()
