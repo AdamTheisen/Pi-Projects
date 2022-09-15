@@ -19,6 +19,7 @@ obj = act.io.csvfiles.read_csv(files, column_names=names, parse_dates=True, inde
 #time = obj['time'].values
 #time = [t + np.timedelta64(5, 'h') for t in time]
 #obj = obj.assign_coords(time=time) 
+obj = obj.sortby('time')
 
 obj = obj.resample(time='1H').mean()
 obj['lat'] = 41.96252
@@ -28,7 +29,7 @@ obj['lon'] = -88.12377
 
 token = os.getenv('AIRNOW_API')
 latlon = '-88.3,41.7,-87.9,42.3'
-obj2 = act.discovery.get_airnow.get_airnow_bounded_obs(token, '2022-09-01T00', '2022-09-08T23', latlon, parameters='PM25')
+obj2 = act.discovery.get_airnow.get_airnow_bounded_obs(token, '2022-09-01T00', '2022-09-11T23', latlon, parameters='PM25')
 #obj2 = obj2.squeeze(dim='sites', drop=False)
 
 display = act.plotting.TimeSeriesDisplay({'sps30': obj, 'epa': obj2})
