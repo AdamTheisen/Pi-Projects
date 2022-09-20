@@ -14,7 +14,7 @@ if __name__ == "__main__":
     clean_interval = pm_sensor.read_auto_cleaning_interval()
     pm_sensor.start_measurement()
 
-    today = dt.date.today().strftime('%Y%m%d')
+    today = dt.datetime.utcnow().strftime('%Y%m%d')
     f = open('/home/theisen/Code/Pi-Projects/data/sps30/' + today + '.txt', 'a')
     print('Opening file')
     ct = 0
