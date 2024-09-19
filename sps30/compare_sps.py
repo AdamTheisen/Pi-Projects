@@ -6,7 +6,7 @@ import os
 import numpy as np
 import xarray as xr
 
-files = glob.glob('/Users/atheisen/Code/Pi-Projects/data/sps30/2023061*')
+files = glob.glob('/Users/atheisen/Code/Pi-Projects/data/sps30/2024*')
 files.sort()
 names = ['time', 'pc_0_5', 'pc_1_0', 'pc_2_5', 'pc_4_0', 'pc_10_0',
          'mc_1_0', 'mc_2_5', 'mc_4_0', 'mc_10_0','particle_size',
@@ -22,18 +22,18 @@ obj = obj.sortby('time')
 obj = obj.resample(time='1H').mean()
 
 # Set Lat/lon of the system
-obj['lat'] = 41.96252
-obj['lon'] = -88.12377
+obj['lat'] = 45.023
+obj['lon'] = -92.8602
 
 # Needs an AIRNOW_API environment variable set with your TOKEN
 # sign up here: https://docs.airnowapi.org/
 token = os.getenv('AIRNOW_API')
 
 # Set Lat/lon box for EPA sites
-latlon = '-88.3,41.7,-87.9,42.3'
+latlon = '-93.2,44.79,-92.68,45.12'
 
 # Get EPA data
-obj2 = act.discovery.get_airnow.get_airnow_bounded_obs(token, '2023-06-10T00', '2023-06-19T23', latlon, parameters='PM25')
+obj2 = act.discovery.get_airnow.get_airnow_bounded_obs(token, '2024-09-17T00', '2024-09-30T23', latlon, parameters='PM25')
 
 display = act.plotting.TimeSeriesDisplay({'sps30': obj, 'epa': obj2})
 display.plot('mc_1_0', dsname='sps30', label='SPS30 PM1')
